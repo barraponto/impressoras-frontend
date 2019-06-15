@@ -15,10 +15,14 @@ const defeitos = [
   { id: 4, descricao: "A impressora sempre imprime uma folha de teste." },
 ];
 
-export default () => {
+const navigate = (history) => (event) => {
+  history.push('/chamado/sugestao');
+}
+
+export default ({history}) => {
   const {serie, marca, modelo, local} = impressora;
   return (
-    <form className="defeito">
+    <form className="defeito" onChange={navigate(history)}>
       <h1 className="h3 font-weight-normal text-center">Abrindo Chamado</h1>
       <div class="form-group">
         <label for="defeito">Selecione um defeito que sua impressora está apresentando:</label>

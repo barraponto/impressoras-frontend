@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import ChamadoStub from './ChamadoStub';
 
 const chamados = [
@@ -27,7 +28,7 @@ export default () => {
       <div className="list-group mt-3">
         {chamados.map(chamado => <ChamadoStub key={chamado.id} {...chamado} />)}
       </div>
-      <button className="btn btn-primary btn-block mt-3" type="button">Abrir Novo Chamado</button>
+      <Link to="/chamado/impressora" className="btn btn-primary btn-block mt-3">Abrir Novo Chamado</Link>
     </div>
   );
 }

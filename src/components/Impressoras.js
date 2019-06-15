@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import ImpressoraStub from './ImpressoraStub';
 
 const impressoras = [
