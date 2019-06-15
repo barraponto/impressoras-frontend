@@ -1,5 +1,5 @@
 import React from 'react';
-import ImpressoraStub from '.onChange/ImpressoraStub';
+import ImpressoraStub from './ImpressoraStub';
 
 const impressoras = [
   {
