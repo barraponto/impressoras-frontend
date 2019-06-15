@@ -1,6 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import ImpressoraStub from './ImpressoraStub';
+import ImpressoraStub from '.onChange/ImpressoraStub';
 
 const impressoras = [
   {
