@@ -7,6 +7,7 @@ html, body, #root, .app {
 }
 
 .app {
+    font-size: .875rem;
     background-color: white;
     max-width: 480px;
     display: flex;
@@ -28,8 +29,4 @@ html, body, #root, .app {
     margin: 0 auto;
     max-width: 330px;
     text-align: center;
-}
-
-.form-signin .btn-primary {
-    margin-top: .5rem;
 }
