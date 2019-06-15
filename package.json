@@ -12,6 +12,7 @@
     "reactstrap": "^8.0.0"
   },
   "scripts": {
+    "now-build": "react-scripts build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
