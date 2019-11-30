@@ -9,16 +9,18 @@ const impressora = {
   local: "Campus Campinas"
 };
 
-const fetchSolucao = (setSolucao) => () => {
-  axios.get('/solucoes/1')
+const fetchSolucao = (setSolucao, defeitoId) => () => {
+  axios.get(`/solucoes/${defeitoId}`)
     .then((response) => { setSolucao(response.data); });
 }
 
-export default () => {
+export default (props) => {
   const {serie, marca, modelo, local} = impressora;
   const [solucao, setSolucao] = useState({solucao: '<p>Carregando solucoes</p>'});
 
-  useEffect(fetchSolucao(setSolucao), []);
+  console.log(props);
+
+  useEffect(fetchSolucao(setSolucao, 1), []);
 
   return (
     <div class="sugestao">

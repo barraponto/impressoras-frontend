@@ -19,7 +19,7 @@ const App = () => {
         <Route exact path="/dashboard" component={Dashboard} />
         <Route exact path="/chamado/impressora" component={Impressoras} />
         <Route exact path="/chamado/defeito" component={Defeitos} />
-        <Route exact path="/chamado/sugestao" component={Solucao} />
+        <Route exact path="/chamado/sugestao/:defeitoId" component={Solucao} />
       </main>
     </div>
   );
