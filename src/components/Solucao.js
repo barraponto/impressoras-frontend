@@ -1,5 +1,5 @@
-import React from 'react';
-import ImpressoraStub from './ImpressoraStub';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const impressora = {
   id: 45,
@@ -9,16 +9,21 @@ const impressora = {
   local: "Campus Campinas"
 };
 
+const fetchSolucao = (setSolucao) => () => {
+  axios.get('/solucoes/1')
+    .then((response) => { setSolucao(response.data); });
+}
+
 export default () => {
   const {serie, marca, modelo, local} = impressora;
+  const [solucao, setSolucao] = useState({solucao: '<p>Carregando solucoes</p>'});
+
+  useEffect(fetchSolucao(setSolucao), []);
+
   return (
     <div class="sugestao">
       <h1 className="h3 font-weight-normal text-center">Solução Sugerida</h1>
-      <ol>
-        <li>Verifique se a impressora está conectada na tomada.</li>
-        <li>Confira se a tomada está com energia. Experimente conectar outro aparelho, como um carregador de celular.</li>
-        <li>Experimente substituir o cabo que conecta a impressora na tomada. O cabo reserva se encontra preso atrás da mesma.</li>
-      </ol>
+      <div className="solucao" dangerouslySetInnerHTML={{__html: solucao.solucao }} />
       <button className="btn btn-primary btn-block mt-3" type="button">Problema Resolvido!</button>
       <button className="btn btn-secondary btn-block" type="button">Ainda não resolveu!</button>
       <small>Apresentando soluções para Impressora {marca} {modelo} número de série {serie} alocada em <em>{local}</em>.</small>
