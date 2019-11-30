@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const impressora = {
   id: 45,
@@ -8,25 +9,27 @@ const impressora = {
   local: "Campus Campinas"
 };
 
-const defeitos = [
-  { id: 1, descricao: "A impressora não liga." },
-  { id: 2, descricao: "A impressora imprime um papel em branco." },
-  { id: 3, descricao: "A impressora emite um bipe longo." },
-  { id: 4, descricao: "A impressora sempre imprime uma folha de teste." },
-];
-
 const navigate = (history) => (event) => {
   history.push('/chamado/sugestao');
 }
 
+const fetchDefeitos = (setDefeitos) => () => {
+  axios.get('/defeitos')
+    .then((response) => { setDefeitos(response.data); });
+}
+
 export default ({history}) => {
+  const [defeitos, setDefeitos] = useState([]);
   const {serie, marca, modelo, local} = impressora;
+
+  useEffect(fetchDefeitos(setDefeitos), []);
+
   return (
     <form className="defeito" onChange={navigate(history)}>
       <h1 className="h3 font-weight-normal text-center">Abrindo Chamado</h1>
-      <div class="form-group">
-        <label for="defeito">Selecione um defeito que sua impressora está apresentando:</label>
-        <select class="form-control" id="defeito">
+      <div className="form-group">
+        <label htmlFor="defeito">Selecione um defeito que sua impressora está apresentando:</label>
+        <select className="form-control" id="defeito">
           {defeitos.map(defeito => <option key={defeito.id} value={defeito.id}>{defeito.descricao}</option>)}
         </select>
       </div>

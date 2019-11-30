@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "name": "my-react-app",
+  "name": "consulti",
   "builds": [
     {
       "src": "package.json",
@@ -22,6 +22,14 @@
       "src": "/service-worker.js",
       "headers": { "cache-control": "s-maxage=0" },
       "dest": "/service-worker.js"
+    },
+    {
+      "src": "/defeitos",
+      "dest": "https://infinite-bastion-87664.herokuapp.com/defeitos.php"
+    },
+    {
+      "src": "/solucoes/(?<id>[^/])*",
+      "dest": "https://infinite-bastion-87664.herokuapp.com/solucao.php?defeito=$id"
     },
     {
       "src": "/(.*)",
