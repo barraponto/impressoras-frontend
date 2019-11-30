@@ -28,7 +28,7 @@
       "dest": "https://infinite-bastion-87664.herokuapp.com/defeitos.php"
     },
     {
-      "src": "/solucoes/(?<id>[^/])*",
+      "src": "/solucoes/(?<id>[^/]*)",
       "dest": "https://infinite-bastion-87664.herokuapp.com/solucao.php?defeito=$id"
     },
     {
