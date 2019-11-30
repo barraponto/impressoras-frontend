@@ -10,7 +10,7 @@ const impressora = {
 };
 
 const navigate = (history) => (event) => {
-  history.push(`/chamado/sugestao/{event.target.defeito.value}`);
+  history.push(`/chamado/sugestao/${event.target.defeito.value}`);
 }
 
 const fetchDefeitos = (setDefeitos) => () => {
