@@ -18,8 +18,6 @@ export default ({match}) => {
   const {serie, marca, modelo, local} = impressora;
   const [solucao, setSolucao] = useState({solucao: '<p>Carregando solucoes</p>'});
 
-  console.log(props);
-
   useEffect(fetchSolucao(setSolucao, match.params.defeitoId), []);
 
   return (
